@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name         Alt+C Code Capture
 // @namespace    http://tampermonkey.net/
-// @updateURL    https://github.com/Kerosene92/tamper_monkey_scripts/blob/3c1163799086c8e14d01b60d2601c4d891190c6f/code_capture.user.js
+// @updateURL    https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/code_capture.user.js
+// @downloadURL  https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/code_capture.user.js
 // @version      1.0
 // @description  Press Alt+C to input two codes and store them in variables
 // @author       You
