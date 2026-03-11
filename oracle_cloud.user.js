@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Oracle Cloud Hotkey
 // @version      1.0
-// @updateURL    https://github.com/Kerosene92/tamper_monkey_scripts/blob/7615c0a53fbacd9533145f80f30ce85c28323f55/oracle_cloud.user.js
+// @updateURL    https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
+// @downloadURL  https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @namespace    http://tampermonkey.net/
-// @version      2026-02-27
 // @author       You
 // @match        https://fa-esco-saasfaprod1.fa.ocs.oraclecloud.com/*
 // @run-at       document-idle
