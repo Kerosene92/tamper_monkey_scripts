@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Oracle Cloud Hotkey
-// @version      1.0.1
+// @version      1.0.2
 // @updateURL    https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @downloadURL  https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @namespace    http://tampermonkey.net/
@@ -51,7 +51,7 @@
         input.dispatchEvent(new KeyboardEvent('keypress', { bubbles: true, key: char, keyCode }));
         document.execCommand('insertText', false, char);
         input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: char, keyCode }));
-        await wait(30); // small delay between characters
+        // await wait(30);  small delay between characters
     }
 
     // Confirm with Tab (ADF often triggers validation on tab-out)
