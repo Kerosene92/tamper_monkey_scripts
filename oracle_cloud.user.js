@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Oracle Cloud Hotkey
-// @version      1.1.3
+// @version      1.1.4
 // @updateURL    https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @downloadURL  https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @namespace    http://tampermonkey.net/
@@ -161,7 +161,7 @@
     }
 
     function handleAltC(e) {
-        if (!e.altKey || e.code !== 'KeyX') return;
+        if (!e.altKey || e.code !== 'KeyV') return;
         e.preventDefault();
         e.stopImmediatePropagation();
         showCodeModal();
