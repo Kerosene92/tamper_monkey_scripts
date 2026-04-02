@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Oracle Cloud Hotkey
-// @version      1.1.0
+// @version      1.1.2
 // @updateURL    https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @downloadURL  https://raw.githubusercontent.com/Kerosene92/tamper_monkey_scripts/refs/heads/main/oracle_cloud.user.js
 // @namespace    http://tampermonkey.net/
@@ -20,7 +20,7 @@
     let secondCode = null;
 
     window.__altC = {
-        get firstCode() { return firstCode; },
+        get firstCode()  { return firstCode;  },
         get secondCode() { return secondCode; },
     };
 
@@ -31,10 +31,10 @@
             Object.getPrototypeOf(input), 'value'
         ).set;
         nativeSetter.call(input, value);
-        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('input',  { bubbles: true }));
         input.dispatchEvent(new Event('change', { bubbles: true }));
         input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, keyCode: 13 }));
-        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, keyCode: 13 }));
+        input.dispatchEvent(new KeyboardEvent('keyup',   { bubbles: true, keyCode: 13 }));
     }
 
     function setInputByLabel(labelText, value) {
@@ -50,20 +50,20 @@
         input.focus();
 
         input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'a', keyCode: 65, ctrlKey: true }));
-        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'a', keyCode: 65, ctrlKey: true }));
+        input.dispatchEvent(new KeyboardEvent('keyup',   { bubbles: true, key: 'a', keyCode: 65, ctrlKey: true }));
         document.execCommand('selectAll', false, null);
-        document.execCommand('delete', false, null);
+        document.execCommand('delete',    false, null);
 
         for (const char of value) {
             const keyCode = char.charCodeAt(0);
-            input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: char, keyCode }));
+            input.dispatchEvent(new KeyboardEvent('keydown',  { bubbles: true, key: char, keyCode }));
             input.dispatchEvent(new KeyboardEvent('keypress', { bubbles: true, key: char, keyCode }));
             document.execCommand('insertText', false, char);
-            input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: char, keyCode }));
+            input.dispatchEvent(new KeyboardEvent('keyup',    { bubbles: true, key: char, keyCode }));
         }
 
         input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', keyCode: 9 }));
-        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'Tab', keyCode: 9 }));
+        input.dispatchEvent(new KeyboardEvent('keyup',   { bubbles: true, key: 'Tab', keyCode: 9 }));
         input.blur();
     }
 
@@ -114,12 +114,12 @@
         overlay.appendChild(box);
         document.body.appendChild(overlay);
 
-        const firstInput = document.getElementById('__altC_first');
+        const firstInput  = document.getElementById('__altC_first');
         const secondInput = document.getElementById('__altC_second');
-        const confirmMsg = document.getElementById('__altC_confirm');
+        const confirmMsg  = document.getElementById('__altC_confirm');
 
         // Pre-fill with current values if already set
-        if (firstCode) firstInput.value = firstCode;
+        if (firstCode)  firstInput.value  = firstCode;
         if (secondCode) secondInput.value = secondCode;
 
         firstInput.focus();
@@ -133,7 +133,7 @@
 
         document.getElementById('__altC_save').addEventListener('mousedown', function(e) {
             e.preventDefault(); e.stopImmediatePropagation(); e.stopPropagation();
-            firstCode = firstInput.value.trim();
+            firstCode  = firstInput.value.trim();
             secondCode = secondInput.value.trim();
             console.log('[Alt+C Code Capture] First:', firstCode, '| Second:', secondCode);
             confirmMsg.style.display = 'block';
@@ -186,12 +186,12 @@
                 }
 
                 select.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, cancelable: true }));
-                select.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+                select.dispatchEvent(new MouseEvent('click',   { bubbles: true, cancelable: true }));
                 select.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
-                select.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
-                select.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, cancelable: true, key: 'Enter', keyCode: 13 }));
+                select.dispatchEvent(new Event('input',  { bubbles: true, cancelable: true }));
+                select.dispatchEvent(new KeyboardEvent('keydown',  { bubbles: true, cancelable: true, key: 'Enter', keyCode: 13 }));
                 select.dispatchEvent(new KeyboardEvent('keypress', { bubbles: true, cancelable: true, key: 'Enter', keyCode: 13 }));
-                select.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, cancelable: true, key: 'Enter', keyCode: 13 }));
+                select.dispatchEvent(new KeyboardEvent('keyup',    { bubbles: true, cancelable: true, key: 'Enter', keyCode: 13 }));
                 select.blur();
             }
         }
@@ -229,7 +229,7 @@
 
     function addHotkeys(win) {
         try {
-            win.addEventListener('keydown', handleAltC, true);
+            win.addEventListener('keydown', handleAltC,  true);
             win.addEventListener('keydown', function (e) {
                 if (e.altKey && e.code === 'KeyX') {
                     e.preventDefault();
